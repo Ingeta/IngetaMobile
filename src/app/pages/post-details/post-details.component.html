@@ -1,0 +1,62 @@
+<ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button color="light" (click)="navCtrl.back()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title *ngIf="websiteInfos">{{websiteInfos.name}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button color="light" (click)="saveArticle()">
+                <ion-icon name="bookmark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div class="summary ion-padding" *ngIf="!postDetails">
+        <p class="title">
+            <ion-skeleton-text style="height: 20px;" animated=""></ion-skeleton-text>
+            <ion-skeleton-text style="height: 20px;" animated=""></ion-skeleton-text>
+            <ion-skeleton-text style="height: 20px;" animated=""></ion-skeleton-text>
+            <ion-skeleton-text style="height: 20px;" animated=""></ion-skeleton-text>
+        </p>
+        <ion-card class="ion-no-padding ion-no-margin">
+            <ion-skeleton-text animated="" style="height: 300px;"></ion-skeleton-text>
+        </ion-card>
+        <p class="short-description">
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+        </p>
+        <p><ion-skeleton-text animated></ion-skeleton-text></p>
+        <ion-text color="medium"><ion-skeleton-text animated></ion-skeleton-text></ion-text>
+        <div class="hr"></div>
+        <p class="content ion-text-justify">
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+        </p>
+    </div>
+    <div class="summary ion-padding" *ngIf="postDetails">
+        <p class="title" [innerHTML]="postDetails.title.rendered"></p>
+        <ion-card class="ion-no-padding ion-no-margin">
+            <app-aspect-ratio [ratio]="{w: 425, h: 319}">
+                <app-image-shell class="icon-image" [src]="postDetails.media_url"></app-image-shell>
+            </app-aspect-ratio>
+        </ion-card>
+        <p class="short-description" [innerHTML]="postDetails.excerpt.rendered"></p>
+        <p>Par {{postDetails.author_name}}</p>
+        <ion-text color="medium">Publié le {{postDetails.date |date}}</ion-text>
+        <div class="hr"></div>
+        <p class="content ion-text-justify" [innerHTML]="postDetails.content.rendered"></p>
+    </div>
+    <app-comments [postId]="postId"></app-comments>
+    <app-related-posts [categories]="categories"></app-related-posts>
+</ion-content>

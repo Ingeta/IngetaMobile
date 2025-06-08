@@ -1,0 +1,119 @@
+ion-header {
+    .page-title {
+        ion-title {
+            margin-top: 12px;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+:host ::ng-deep #grid .featureImg app-image-shell.icon-image {
+    /* force the shell host-box size */
+    height: 150px !important;
+    width: 195px !important;
+}
+
+:host ::ng-deep #grid .featureImg app-image-shell.icon-image .inner-img {
+    /* make the actual <img> fill the host-box */
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover;
+}
+
+#oneColumn {
+    position: relative;       // anchor for absolute children
+    overflow: hidden;         // clip anything outside
+    margin: 20px auto;
+    width: 100%;
+
+    .bg-image {
+        position: relative;     // new stacking context
+        width: 100%;
+        height: 100%;           // will fill the aspect-ratio container
+    }
+
+    .image-wrapper {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* gradient sits above the image, below the text */
+    .gradient-overlay {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* your details box floats on top */
+    .details {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        z-index: 2;           // above gradient + image
+        color: white;
+        text-shadow: 0 1px 0 black;
+
+        h2 {
+            font-family: 'OpenSans-SemiBold';
+            font-size: 18px;
+            margin: 0;
+        }
+        p {
+            margin: 0;
+            font-size: 12px;
+        }
+    }
+
+    /* ensure the shell’s cover mode fills its wrapper */
+    app-image-shell,
+    app-image-shell .inner-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+#grid {
+    .featureImg {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 150px;
+    }
+
+    .title {
+        font-family: 'OpenSans-SemiBold';
+        font-size: 16px;
+    }
+}
+
+
+
+#list {
+    .item {
+        padding-bottom: 10px;
+
+        ion-thumbnail {
+            width: 140px;
+            height: 90px;
+
+            img {
+                width: 140px;
+                height: 90px;
+                border-radius: 5px;
+            }
+        }
+
+        .title {
+            font-family: 'OpenSans-SemiBold';
+        }
+
+        ion-note {
+            font-size: 1rem;
+            font-family: 'OpenSans-Bold';
+        }
+    }
+}

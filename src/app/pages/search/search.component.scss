@@ -1,0 +1,32 @@
+ion-title {
+    font-family: 'OpenSans-Bold';
+}
+
+#searchbar {
+    background: #eeeeee;
+}
+
+ion-searchbar {
+    --background: #ffffff;
+}
+
+#list {
+    .title {
+        font-family: 'OpenSans-Bold';
+    }
+
+    .item {
+        padding-bottom: 10px;
+
+        ion-thumbnail {
+            width: 100px;
+            height: 60px;
+
+            img {
+                width: 100px;
+                height: 60px;
+                border-radius: 5px;
+            }
+        }
+    }
+}

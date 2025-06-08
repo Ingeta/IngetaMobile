@@ -1,0 +1,34 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="color1">
+
+    <!-- Back button -->
+    <ion-buttons slot="start">
+      <ion-button color="light" (click)="gotoPostPage()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Page Title -->
+    <ion-title>Comment Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- Main Contents -->
+<ion-content [fullscreen]="true">
+  <!-- List Of Comments -->
+  <ion-list>
+    <ion-item lines="full" *ngIf="commentDetails">
+      <ion-avatar slot="start">
+        <img [src]="commentDetails.author_avatar_urls[96]">
+      </ion-avatar>
+
+      <ion-label>
+        <h2>{{ commentDetails.author_name }} <ion-text color="medium"><i>{{ commentDetails.date_gmt | date}}</i>
+          </ion-text>
+        </h2>
+        <p class="ion-text-wrap" [innerHTML]="commentDetails.content.rendered"></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

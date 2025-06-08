@@ -1,0 +1,52 @@
+PODS:
+  - Capacitor (7.3.0):
+    - CapacitorCordova
+  - CapacitorApp (7.0.1):
+    - Capacitor
+  - CapacitorCordova (7.3.0)
+  - CapacitorNetwork (7.0.1):
+    - Capacitor
+  - CapacitorSplashScreen (7.0.1):
+    - Capacitor
+  - CapacitorStatusBar (7.0.1):
+    - Capacitor
+  - CapacitorStorage (1.2.5):
+    - Capacitor
+
+DEPENDENCIES:
+  - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorApp (from `../../node_modules/@capacitor/app`)"
+  - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorNetwork (from `../../node_modules/@capacitor/network`)"
+  - "CapacitorSplashScreen (from `../../node_modules/@capacitor/splash-screen`)"
+  - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
+  - "CapacitorStorage (from `../../node_modules/@capacitor/storage`)"
+
+EXTERNAL SOURCES:
+  Capacitor:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorApp:
+    :path: "../../node_modules/@capacitor/app"
+  CapacitorCordova:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorNetwork:
+    :path: "../../node_modules/@capacitor/network"
+  CapacitorSplashScreen:
+    :path: "../../node_modules/@capacitor/splash-screen"
+  CapacitorStatusBar:
+    :path: "../../node_modules/@capacitor/status-bar"
+  CapacitorStorage:
+    :path: "../../node_modules/@capacitor/storage"
+
+SPEC CHECKSUMS:
+  Capacitor: fbd134fa28e503720559ecddb5ab6b41d69de347
+  CapacitorApp: d63334c052278caf5d81585d80b21905c6f93f39
+  CapacitorCordova: 2685f5c43675793b5f06dfd66b3b26268f003b97
+  CapacitorNetwork: 07ec4c69c1bb696f41c23e00d31bda1bbb221bba
+  CapacitorSplashScreen: 19cd3573e57507e02d6f34597a8c421e00931487
+  CapacitorStatusBar: 275cbf2f4dfc00388f519ef80c7ec22edda342c9
+  CapacitorStorage: 63255170c2f7e9f7363b3e5e015584e6d18f2969
+
+PODFILE CHECKSUM: bef253070b1891049a169482bc1cbd7bdebdcbeb
+
+COCOAPODS: 1.16.2

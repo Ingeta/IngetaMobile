@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ingeta App</string>
+    <string name="title_activity_main">Ingeta App</string>
+    <string name="package_name">com.ingeta.app</string>
+    <string name="custom_url_scheme">com.ingeta.app</string>
+</resources>

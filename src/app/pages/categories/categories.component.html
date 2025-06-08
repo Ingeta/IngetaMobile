@@ -1,0 +1,31 @@
+<ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button color="light"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Categories</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-grid>
+        <ion-row>
+            <ng-container *ngIf="loading">
+                <ion-col size-lg="3" size-md="4" size-sm="6" size="6" *ngFor="let item of [0,1,2,3,4,5,6,7,8,9]">
+                    <ion-card class="ion-no-margin">
+                        <ion-skeleton-text style="height: 140px;" animated></ion-skeleton-text>
+                    </ion-card>
+                </ion-col>
+            </ng-container>
+            <ion-col size-lg="3" size-md="4" size-sm="6" size="6" *ngFor="let item of categories">
+                <ion-card [ngStyle]="{'background': item.color}" class="ion-no-margin"
+                          (click)="item.count > 0 && gotoPostPageByCategory(item.id)">
+                    <ion-card-header>
+                        <ion-card-title class="category-name ion-text-capitalize"
+                        [innerHTML]="item.name"></ion-card-title>
+                        <ion-card-subtitle class="post-count">{{item.count}} Articles</ion-card-subtitle>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

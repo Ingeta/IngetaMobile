@@ -1,0 +1,104 @@
+<ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button color="light"></ion-menu-button>
+        </ion-buttons>
+        <ion-row>
+            <ion-col class="page-title">
+                <ion-title>Articles</ion-title>
+            </ion-col>
+            <ion-col>
+                <ion-button fill="clear" [color]="oneColumn ? 'dark' : 'light'"
+                   class="ion-no-padding" (click)="showOneColumn()">
+                    <ion-icon slot="icon-only" name="square"></ion-icon>
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button fill="clear" [color]="grid ? 'dark' : 'light'"
+                    class="ion-no-padding" (click)="showGrid()">
+                    <ion-icon slot="icon-only" name="grid"></ion-icon>
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button fill="clear" [color]="list ? 'dark' : 'light'"
+                    class="ion-no-padding" (click)="showList()">
+                    <ion-icon slot="icon-only" name="list"></ion-icon>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-grid id="grid" *ngIf="grid" class="ion-padding">
+        <ion-row>
+            <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let item of posts"
+                     (click)="gotoPostDetailsPage(item.id)">
+                <ion-card class="ion-no-margin">
+                    <app-aspect-ratio class="featureImg" [ratio]="{w: 195, h: 150}">
+                        <app-image-shell class="icon-image" [src]="item.media_url"></app-image-shell>
+                    </app-aspect-ratio>
+                </ion-card>
+                <h4 class="title" [innerHTML]="item.title.rendered"></h4>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div *ngIf="oneColumn" class="ion-padding">
+        <ion-card id="oneColumn" *ngFor="let item of posts" (click)="gotoPostDetailsPage(item.id)">
+            <div class="bg-image">
+                <app-aspect-ratio [ratio]="{ w: 410, h: 220 }" class="image-wrapper">
+                    <app-image-shell
+                            display="cover"
+                            [src]="item.media_url"
+                            [alt]="item.title.rendered">
+                    </app-image-shell>
+                </app-aspect-ratio>
+                <div class="gradient-overlay"></div>
+                <div class="details">
+                    <h2 [innerHTML]="item.title.rendered"></h2>
+                    <p>
+                        <ion-icon name="time-outline" color="color1"></ion-icon>
+                        {{ item.date_gmt | date }}
+                    </p>
+                </div>
+            </div>
+        </ion-card>
+    </div>
+    <div id="list" *ngIf="list">
+        <ng-container *ngIf="loading">
+            <ion-list lines="none" *ngFor="let item of [0,1,2,3,4,5,6,7,8,9,10]; let i = index">
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="height: 100px;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label class="ion-text-wrap">
+                        <h4 class="title">
+                            <ion-skeleton-text animated></ion-skeleton-text>
+                        </h4>
+                        <ion-text>
+                            <ion-skeleton-text animated></ion-skeleton-text>
+                            <ion-skeleton-text animated></ion-skeleton-text>
+                            <ion-skeleton-text animated></ion-skeleton-text>
+                        </ion-text>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+        </ng-container>
+        <ion-list lines="none" *ngFor="let item of posts; let i = index">
+            <ion-item (click)="gotoPostDetailsPage(item.id)">
+                <ion-thumbnail slot="start">
+                    <app-aspect-ratio [ratio]="{w: 140, h: 105}">
+                        <app-image-shell class="icon-image" [src]="item.media_url"></app-image-shell>
+                    </app-aspect-ratio>
+                </ion-thumbnail>
+                <ion-label class="ion-text-wrap">
+                    <h4 class="title" [innerHTML]="item.title.rendered"></h4>
+                    <ion-text>Par {{item.author_name}}</ion-text>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+        <ion-infinite-scroll-content loadingText="Chargement de plus d’articles...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

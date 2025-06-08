@@ -1,0 +1,16 @@
+<ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" color="color1">
+            <ion-menu-button color="light"></ion-menu-button>
+        </ion-buttons>
+        <ion-title *ngIf="websiteInfos">
+            Acceuil
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <app-home-categories></app-home-categories>
+    <app-home-recent-news></app-home-recent-news>
+    <app-home-hot-news></app-home-hot-news>
+</ion-content>

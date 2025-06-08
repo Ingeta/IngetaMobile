@@ -1,0 +1,41 @@
+<ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button color="light"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Articles sauvegardés</ion-title>
+        <ion-buttons slot="end">
+            <ion-button class="action-icon" (click)="clearStorageArticles()">
+                <ion-icon slot="end" name="trash-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <div *ngIf="posts.length === 0">
+        <ion-grid id="no-elements" class="ion-padding" style="height: 70%">
+            <ion-row class="ion-align-items-center ion-justify-content-center" style="height: 70%; flex-direction: column">
+                <div class="ion-text-center ion-padding">
+                    <ion-icon name="bookmark-outline" style="zoom:5.0;" color="medium"></ion-icon>
+                    <h4>Retrouvez vos articles sauvegardés ici.</h4>
+                    <p>Lorsque vous lisez un article, touchez l’icône
+                        <ion-icon name="bookmark-outline" color="medium"></ion-icon>
+                        pour l’enregistrer. Vous pourrez revenir ici pour le lire plus tard.</p>
+                </div>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <div id="home-hot-news" class="ion-padding-start" *ngIf="posts.length > 0">
+        <ion-list lines="none" *ngFor="let item of posts">
+            <ion-item class="ion-no-padding" (click)="gotoPostDetailsPage(item.id)">
+                <ion-thumbnail slot="start">
+                    <img style="vertical-align: middle;" [src]="item.media_url" />
+                </ion-thumbnail>
+                <ion-label class="ion-text-wrap">
+                    <h4 class="title" [innerHTML]="item.title.rendered"></h4>
+                    <ion-text>Par {{item.author_name}}</ion-text>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

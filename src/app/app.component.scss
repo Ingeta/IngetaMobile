@@ -1,0 +1,24 @@
+ion-menu {
+    ion-toolbar {
+        --background: var(--ion-color-primary);
+        height: 150px;
+
+
+        .text-content {
+            font-family: 'OpenSans-Bold';
+            text-align: center;
+            font-size: 1.4rem;
+            color: var(--ion-color-light);
+            padding-top: 30px;
+        }
+    }
+    .version-number-wrapper {
+        .version-number-value {
+            text-align: center;
+        }
+    }
+    .logo-wrapper {
+        padding-top: 16px;
+        text-align: center;
+    }
+}

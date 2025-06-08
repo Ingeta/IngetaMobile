@@ -1,0 +1,23 @@
+.summary {
+    text-align: center;
+
+    .title {
+        font-size: 2rem;
+        font-weight: 500;
+        font-family: 'OpenSans-Bold';
+    }
+
+    .short-description {
+        font-size: 1.2rem;
+        font-family: 'OpenSans-SemiBold';
+    }
+
+    .author-details {
+        font-family: 'OpenSans-SemiBold';
+    }
+
+    .content {
+        text-align: left;
+        font-family: 'OpenSans-Regular';
+    }
+}

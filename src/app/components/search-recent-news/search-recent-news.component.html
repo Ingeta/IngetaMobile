@@ -1,0 +1,56 @@
+<swiper-container #swiper *ngIf="loading"
+                  class="getting-started-slides"
+                  [slidesPerView]="2.5"
+                  [spaceBetween]="10"
+                  [loop]="true">
+    <swiper-slide class="browsing-categories-slide question-slide" *ngFor="let item of [0,1,2,3,4]; let i=index">
+        <ion-row>
+            <ion-col size="12">
+                <ion-card class="ion-no-padding ion-no-margin">
+                    <ion-skeleton-text animated style="height: 200px;"></ion-skeleton-text>
+                    <ion-fab vertical="top" horizontal="end">
+                        <ion-fab-button>
+                            <ion-icon color="color1" ios="bookmark-outline" md="bookmark-outline"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12">
+                <div class="title-wrapper">
+                    <ion-skeleton-text animated style="height: 10px;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="height: 10px;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="height: 10px;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="height: 10px;"></ion-skeleton-text>
+                </div>
+            </ion-col>
+        </ion-row>
+    </swiper-slide>
+</swiper-container>
+<swiper-container #swiper
+                  class="getting-started-slides"
+                  [slidesPerView]="2.5"
+                  [spaceBetween]="10"
+                  [loop]="true">
+    <swiper-slide class="browsing-categories-slide question-slide" *ngFor="let item of posts; let i=index">
+        <ion-row>
+            <ion-col size="12">
+                <ion-card class="ion-no-padding ion-no-margin">
+                    <img *ngIf="item.media_url" [src]="item.media_url"
+                         (click)="gotoPostDetailsPage(item.id)" />
+                    <img *ngIf="!item.media_url" src="assets/images/landing.jpg"
+                         (click)="gotoPostDetailsPage(item.id)" />
+                    <ion-fab vertical="top" horizontal="end">
+                        <ion-fab-button>
+                            <ion-icon color="color1" ios="bookmark-outline" md="bookmark-outline"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12">
+                <div class="title-wrapper"(click)="gotoPostDetailsPage(item.id)">
+                    <h4 class="title" [innerHTML]="item.title.rendered | clampLines:3:40"></h4>
+                </div>
+            </ion-col>
+        </ion-row>
+    </swiper-slide>
+</swiper-container>

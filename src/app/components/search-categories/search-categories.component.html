@@ -1,0 +1,23 @@
+<ion-list *ngIf="loading">
+    <ion-item-divider>
+        <ion-label>
+            <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-label>
+    </ion-item-divider>
+    <ion-item lines="none" *ngFor="let item of [0,1,2,3,4,5,6,7]">
+        <ion-label class="category-name ion-text-capitalize">
+            <strong><ion-skeleton-text style="height: 12px;" animated></ion-skeleton-text></strong>
+        </ion-label>
+    </ion-item>
+</ion-list>
+<ion-list *ngIf="!loading && categories.length > 0">
+    <ion-item-divider>
+        <ion-label>
+            Categories
+        </ion-label>
+    </ion-item-divider>
+    <ion-item lines="none" *ngFor="let item of categories" (click)="gotoPostPageByCategory(item.id)">
+        <ion-label class="category-name ion-text-capitalize" [innerHTML]="item.name"></ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end" color="medium" style="zoom:.5;"></ion-icon>
+    </ion-item>
+</ion-list>

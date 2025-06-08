@@ -1,0 +1,35 @@
+<div id="home-hot-news" class="ion-padding-start" *ngIf="loading">
+    <ion-list lines="none" *ngFor="let item of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]">
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-text-wrap">
+                <h4 class="title">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </h4>
+                <ion-text><ion-skeleton-text animated></ion-skeleton-text></ion-text>
+            </ion-label>
+            <ion-thumbnail slot="end">
+                <ion-skeleton-text style="height: 400px;" animated></ion-skeleton-text>
+            </ion-thumbnail>
+        </ion-item>
+    </ion-list>
+</div>
+<div id="home-hot-news" class="ion-padding-start"  *ngIf="!loading">
+    <ion-list lines="none" *ngFor="let item of posts">
+        <ion-item class="ion-no-padding" (click)="gotoPostDetailsPage(item.id)">
+            <ion-label class="ion-text-wrap">
+                <h4 class="title" [innerHTML]="item.title.rendered"></h4>
+                <ion-text>Par {{item.author_name}}</ion-text>
+            </ion-label>
+            <!--<ion-thumbnail slot="end">
+                <img style="vertical-align: middle;" [src]="item.media_url" />
+            </ion-thumbnail>-->
+            <ion-thumbnail slot="end">
+                <app-image-shell class="icon-image" [src]="item.media_url"></app-image-shell>
+            </ion-thumbnail>
+
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+        <ion-infinite-scroll-content loadingText="Chargement de plus d’articles…"></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</div>

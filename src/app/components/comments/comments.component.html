@@ -1,0 +1,21 @@
+<ion-list>
+    <ion-list-header>
+        <ion-label>Commentaires</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let item of comments" lines="full" (click)="gotoCommentDetails(item.id)">
+        <ion-avatar slot="start">
+            <img [src]="item.author_avatar_urls[96]">
+        </ion-avatar>
+
+        <ion-label>
+            <h2>{{ item.author_name }} <ion-text color="medium"><i>{{ item.date_gmt | date}}</i></ion-text>
+            </h2>
+            <p [innerHTML]="item.content.rendered"></p>
+        </ion-label>
+    </ion-item>
+</ion-list>
+
+<div class="ion-text-center">
+    <ion-button color="color1" fill="clear" (click)="gotoCommentsPage()">Tout afficher</ion-button>
+</div>

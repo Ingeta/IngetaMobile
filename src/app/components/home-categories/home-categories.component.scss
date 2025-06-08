@@ -1,0 +1,24 @@
+.getting-started-slides {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+swiper-container {
+    swiper-slide {
+        ion-chip {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            background: var(--ion-color-red-background);
+            color: var(--ion-color-color1);
+            ion-label {
+                /* prevent breaking onto multiple lines */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}

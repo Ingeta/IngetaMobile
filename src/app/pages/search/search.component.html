@@ -1,0 +1,35 @@
+<ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button color="light"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Recherche</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content id="search" [fullscreen]="true">
+    <div id="searchbar" class="ion-padding">
+        <ion-searchbar placeholder="Recherche" debounce="500" (ionInput)="getSearchResult($event)">
+        </ion-searchbar>
+    </div>
+    <div id="list" class="ion-padding" *ngIf="results.length > 0">
+        <ion-list *ngFor="let item of results">
+            <ion-item class="ion-no-padding" (click)="gotoPostDetailsPage(item.id)">
+                <ion-thumbnail slot="start">
+                    <img style="vertical-align: middle;" *ngIf="item.feature_img" [src]="item.feature_img">
+                </ion-thumbnail>
+                <ion-label class="ion-text-wrap">
+                    <h4 class="title" [innerHTML]="item.title.rendered"></h4>
+                    <ion-text>{{item.date | date}}</ion-text>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+            <ion-infinite-scroll-content loadingText="Loading more ...">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+    <div *ngIf="results.length <= 0">
+        <app-search-recent-news></app-search-recent-news>
+        <app-search-categories></app-search-categories>
+    </div>
+</ion-content>

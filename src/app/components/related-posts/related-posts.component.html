@@ -1,0 +1,18 @@
+<div id="related-news">
+    <ion-list-header>
+        <ion-label>Articles similaires</ion-label>
+    </ion-list-header>
+    <ion-list class="ion-padding" lines="none" *ngFor="let item of posts.slice(0,4); let i = index">
+        <ion-item class="ion-no-padding" (click)="gotoPostDetailsPage(item.id)">
+            <ion-thumbnail slot="start">
+                <app-aspect-ratio [ratio]="{w: 140, h: 105}">
+                    <app-image-shell class="icon-image" [src]="item.feature_img"></app-image-shell>
+                </app-aspect-ratio>
+            </ion-thumbnail>
+            <ion-label class="ion-text-wrap">
+                <h4 class="title" [innerHTML]="item.title.rendered"></h4>
+                <ion-text>Par {{item.author_name}}</ion-text>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</div>
