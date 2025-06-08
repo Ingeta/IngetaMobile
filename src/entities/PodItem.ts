@@ -1,5 +1,6 @@
 export class PodItem {
     constructor(
+        public guid: string,
         public title: string,
         public link: string,
         public pubDate: Date,

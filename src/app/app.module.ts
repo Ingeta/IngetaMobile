@@ -12,7 +12,9 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import {PlyrModule} from 'ngx-plyr';
 
 @NgModule({ declarations: [AppComponent],
-    bootstrap: [AppComponent],
+    bootstrap: [
+        AppComponent
+    ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(),

@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 export interface Track {
     title: string;
     url: string;
+    imageUrl: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -28,5 +29,5 @@ export class PlaybackService {
     next()  { this.indexSub.next(Math.min(this.playlist.length - 1, this.index + 1)); }
     prev()  { this.indexSub.next(Math.max(0, this.index - 1)); }
 
-    get currentTrack(): Track { return this.playlist[this.index] || {title: '', url: ''}; }
+    get currentTrack(): Track { return this.playlist[this.index] || {title: '', url: '', imageUrl: ''}; }
 }

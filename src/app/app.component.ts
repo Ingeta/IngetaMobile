@@ -7,7 +7,7 @@ import { WordpressService } from './services/wordpress.service';
 import { register } from 'swiper/element/bundle';
 import {environment} from '../environments/environment';
 import { App as CapacitorApp } from '@capacitor/app';
-import {PlaybackService} from "./services/playback.service";
+import {PlaybackService} from './services/playback.service';
 register();
 
 

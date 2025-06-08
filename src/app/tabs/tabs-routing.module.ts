@@ -37,7 +37,13 @@ const routes: Routes = [
       },
       {
         path: 'comment-details/:commentId',
-        loadChildren: () => import('../pages/comment-details/comment-details.module').then(m => m.CommentDetailsModule)
+        loadChildren: () =>
+            import('../pages/comment-details/comment-details.module').then(m => m.CommentDetailsModule)
+      },
+      {
+        path: 'podcasts',
+        loadChildren: () =>
+            import('../pages/podcasts/podcasts.module').then(m => m.PodcastsModule)
       },
       {
         path: '',

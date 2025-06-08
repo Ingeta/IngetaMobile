@@ -25,6 +25,11 @@ export class MenusService {
                 icon: 'apps'
             },
             {
+                title: 'Podcasts',
+                url: '/tabs/podcasts',
+                icon: 'mic-circle-outline'
+            },
+            {
                 title: 'Recherche',
                 url: '/tabs/search',
                 icon: 'search'
