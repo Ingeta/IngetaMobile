@@ -1,6 +1,6 @@
 # IngetaMobile
 
-IngetaMobile is a modern cross-platform mobile application developed by **Ingeta** and **Harlem Mufoncol** using [Ionic Framework](https://ionicframework.com/), [Capacitor](https://capacitorjs.com/), and [Angular](https://angular.io/). The app offers content delivery, media playback, podcasts, and RSS integration, all with a native feel for both Android and iOS.
+IngetaMobile is a modern cross-platform mobile application developed by **Ingeta** and **Harlem Mufoncol** from **Kasai Connect** using [Ionic Framework](https://ionicframework.com/), [Capacitor](https://capacitorjs.com/), and [Angular](https://angular.io/). The app offers content delivery, media playback, podcasts, and RSS integration, all with a native feel for both Android and iOS.
 
 ## Table of Contents
 
@@ -43,7 +43,7 @@ IngetaMobile is a modern cross-platform mobile application developed by **Ingeta
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- [Node.js](https://nodejs.org/) (v20.19 or higher recommended)
 - [npm](https://www.npmjs.com/) (comes with Node.js)
 - [Ionic CLI](https://ionicframework.com/docs/cli) (`npm install -g @ionic/cli`)
 - [Capacitor CLI](https://capacitorjs.com/docs/getting-started) (`npm install -g @capacitor/cli`)
@@ -161,11 +161,11 @@ Contributions are welcome!
 
 ## License
 
-MIT License, co-owned by Ingeta and Harlem Mufoncol.  
+MIT License, co-owned by Ingeta and Harlem Mufoncol from Kasai Connect.  
 See [LICENSE](LICENSE) for details.
 
 ---
 
 ## Author
 
-Ingeta and Harlem Mufoncol
+Ingeta and Harlem Mufoncol(Kasai Connect)
